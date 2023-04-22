@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR code</title>
+
+    <!-- Mao ni ang API para sa qrcode wa nanay labot ang bootstrap og jquery og copy kana rang API ipaste sa head -->
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    
+    <div class="container vh-100 border d-flex align-items-center justify-content-center gap-5">
+        <div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#generator" id="qrcode">
+                QR Code Generator
+            </button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="qrcode">
+                QR Code Scanner
+            </button>
+        </div>
+        
+        <!-- scanner -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title  w-100 text-center" id="exampleModalLabel">QR Code Scanner</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <!-- mao ni ang div sa qrcode nga camera -->
+                    <div id="reader" ></div>
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-dark mb-3 startscanner">Start Scanner</button>
+                    </div>
+                    <div class="mb-3 d-flex justify-content-center">
+                        <input class="form-control w-50" type="file" id="formFile">
+                    </div>
+                      <div class="m-5 d-flex">
+                        <label class="form-label text-nowrap" for="">Result of Scan: &nbsp;</label>
+                        <p type="text" id="textresult"></p>
+                      </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- generator -->
+        <div class="modal fade" id="generator" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title  w-100 text-center" id="exampleModalLabel">QR Generator</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center border">
+                        <img id="generatedqr" src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl="></img>
+                    </div>
+                    <div class="form-control">
+                        <label for="datagenerator">Input Data for QR code:</label>
+                        <textarea class="form-control" type="text" id="datagenerator" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="downloadqr" >Download</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+    
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
